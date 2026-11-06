@@ -1,4 +1,4 @@
-const { LoginPage } = require('../PageObjects/loginPage');
+const { LoginPage } = require('../PageObjects/LoginPage');
 const { DashboardPage } = require('../PageObjects/DashboardPage');
 const { CartPage } = require('../PageObjects/CartPage');
 const { CheckoutPage } = require('../PageObjects/CheckoutPage');
