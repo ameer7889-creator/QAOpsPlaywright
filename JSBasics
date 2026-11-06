@@ -1,0 +1,100 @@
+var a =1 // var is used when variable, re-declaration is required
+let b =10 // let is used when a variable redefining is required, re dclaration is not allowed for let
+const myconst = true // const used when a variable is immutable i.e doesn't change
+
+if (!myconst)
+{
+    console.log ("I'm in loop")
+}
+else{
+
+    console.log("i'm in else")
+}
+
+i = 0
+while (i<10)
+{
+console.log("i'm in while")
+    i++;
+}
+
+k =0
+for (let j=1; j<=100; j++)
+{
+    if (j%2 ==0 && j%5 ==0) //use && or || operator based on requirement
+    {
+        n++
+        console.log(j)
+        if (n==3)
+        break
+
+    }
+}
+// OP: 10, 20, 30
+
+let req = true
+
+while(!req)
+{
+    console.log(req)
+}
+
+// keep on monitoring the status, executing once and monitoring status use do while
+
+let i =0
+
+while(i>10)
+{
+    i++
+    console.log(i)
+}
+do {
+    i++
+    
+} while (i>10);
+
+//Arrays in JS
+
+var Marks = [97, 76, 98, 76, 90]
+console.log(Marks[3])//76
+Marks[4] = 99 // update the element in the array
+console.log(Marks.length)//5
+Marks.pop() //to remove the last index
+Marks.unshift()//to add an element at the 0 index
+Marks.push()// to insert an element at the end
+console.log(Marks.indexOf[98]) //prints the index of value
+
+// to check the element present in the array
+
+Marks.includes(120)// returns the boolean value of true or false
+
+// creat a sub array from main array
+Marks.slice(2,5) //it returns the value of index(i, n-1)
+sum = 0
+for (i=1;i> Marks.length; i++)
+{
+    //console.log(Marks[i]) //prints the values of indexs in the array
+    sum = sum + Marks[i] // prints the sum of elelments in array
+
+}
+
+let total = Marks.reduce((sum, marks)=> sum+marks,0) //we can use this anonymous fuction to get the values instead of for loop
+console.log(total)
+
+// print the even numbers
+
+var scores = [23, 24, 25, 26, 29, 32]
+
+var evenScores=[]
+
+for (let i=0; i< scores.length(i); i++)
+    {
+    if (scores[i]%2 ==0){
+        evenScores.push(scores[i])
+
+    }
+    }
+console.log(evenScores) 
+// logic to reduce the above code and replace with filter fucntion
+
+let newFilterEvenScores = scores.filter(scores=> scores%2 ==0)

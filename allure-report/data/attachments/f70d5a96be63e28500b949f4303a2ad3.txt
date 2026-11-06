@@ -1,0 +1,4 @@
+[ 'ADIDAS ORIGINAL', 'ZARA COAT 3', 'iphone 13 pro' ]
+* Coupon Applied
+ | 6aed99d492a4341c4c0740f6 | 
+6aed99d492a4341c4c0740f6
