@@ -3,8 +3,6 @@ import { chromium, defineConfig, devices } from '@playwright/test';
   const config = ({
   testDir: './tests', 
 
-
-  
   /* max time one test can run for. */
   timeout: 30*1000, // if extra timeout needed at global level
     expect :{      //if timeout needed for assertions
@@ -16,12 +14,12 @@ import { chromium, defineConfig, devices } from '@playwright/test';
   use: {
 
     browserName: 'chromium',
-    headless: false,
+    headless: true,
     //actionTimeout: 10 * 1000,
     //navigationTimeout: 30 * 1000,
-    screenshot:'on',
-    //screenshot: 'only-on-failure',
-    trace:'on'
+    //screenshot:'on',
+    screenshot: 'only-on-failure',
+    trace:'retain-on-failure'
   },
   
   
