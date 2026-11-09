@@ -40,7 +40,7 @@ for (const data of dataset) {
         await checkoutPage.fillCardCoupon(CC, month, day, cvv, ccname, coupon, expectedCouponMsg);
         await checkoutPage.searchCountryAndSelect(countryCode, desiredName);
         const orderId = await checkoutPage.SubmitAndGetOrderId();
-        //The assertion fails because `orderId` includes pipe delimiters (`" | … | "`), while `getOrderId()` returns only the ID. The page snapshot confirms the ID itself is present. Normalize the extracted value, then use an exact equality assertion:
+        //The assertion fails because `orderId` includes pipe delimiters (`" | … | "`), while `getOrderId()` returns only the ID. Normalize the extracted value, then use an exact equality assertion:
         const expectedOrderId = orderId.replace(/\s*\|\s*/g, '').trim();
         console.log(orderId);
         console.log(expectedOrderId);
@@ -56,8 +56,8 @@ for (const data of dataset) {
         const orderdetailsPage = poManager.getOrderdetailsPage();
         await orderdetailsPage.searchOrderAndSelect(orderId);
         const orderDetailsId = await orderdetailsPage.getOrderId();
-        expect(orderDetailsId.trim()).toBe(expectedOrderId);
-        //expect(orderDetailsId).toContain(orderId);
+        expect(await orderDetailsId.trim()).toBe(expectedOrderId);
+        expect.soft(orderDetailsId).toContain(orderId);
     });
 }
 customtest(`Login and go to checkout`, async ({ page, testDataForOrder }) => {

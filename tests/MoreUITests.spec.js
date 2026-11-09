@@ -24,14 +24,17 @@ test('@web MoreUI test', async ({ page }) =>
 
     });
     
-    test('Screenshots', async ({ page }) => {
+    test('Screenshots', async ({ page }, testInfo) => {
 
         await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
         await expect(page.locator("#displayed-text")).toBeVisible();
         await page.locator("#displayed-text").screenshot({path: 'partialSS.png'})
         await page.locator("#hide-textbox").click();
         await expect(page.locator("#displayed-text")).toBeHidden();
-        await page.screenshot({path: 'entireSS.png'});
+        await page.screenshot({path: testInfo.outputPath('SS.png')});
+//playwright supports pixel level ss comparision via toHaveScreenshot() method.
+        await expect(page).toHaveScreenshot('.tests/MoreUITests.spec.js-snapshots/entireSS.png'); 
+
     });
 
     //SS comparision and visual comparision

@@ -68,6 +68,7 @@ test('Child Window Handling', async({browser})=>
     //in JS, it's considered as 'promoise'. Promise will have 3 states. 1. Pending, 2. Rejected, 3. Fulfilled
     documentLink.click(), // new page is opened
     ])
+    await childPage.waitForLoadState();
 
     const text = await childPage.locator(".red").textContent();
     const arrayText = text.split("@");

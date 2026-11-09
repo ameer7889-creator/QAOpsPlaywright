@@ -1,0 +1,23 @@
+//Q. What are promises in JavaScript? Explain the difference between callback functions and promises with an example.
+
+function fetchData(callback){ //using callback to make it generic, so that even if multiple functions can also called using callback instead of hardcoding
+    
+    return new Promise((resolve)=>{ // Promise states, 1. resolve, 2. Pending, 3.rejected
+    //fetching the data from server
+    setTimeout(()=>{
+        console.log("data fetched!");
+        const data = "sample data";
+        resolve(data);
+
+    } ,2000);
+});
+}
+
+fetchData().then(function(data){ //modified function will get executed only if the promise resolved.
+    console.log("processing data", data);
+});
+
+//another way of handlling promises using await. all comes under promises.
+/*const data = await fetchData();
+    console.log("processing data", data);*/
+
